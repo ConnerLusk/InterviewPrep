@@ -3,16 +3,16 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch ArrayIntro",
+            "name": "Launch Main",
             "request": "launch",
-            "mainClass": "Arrays.ArrayIntro",
+            "mainClass": "Main",
             "projectName": "InterviewPrep_b4c9692b"
         },
         {
             "type": "java",
-            "name": "Launch main",
+            "name": "Launch ArrayIntro",
             "request": "launch",
-            "mainClass": "main",
+            "mainClass": "Arrays.ArrayIntro",
             "projectName": "InterviewPrep_b4c9692b"
         },
         {
