@@ -1,9 +1,9 @@
 package SearchAlgorithms;
 
-public class BinarySearch {
+public class ArraySearch {
     int array[];
 
-    public BinarySearch(int array[]) {
+    public ArraySearch(int array[]) {
         this.array = array;
     }
 
