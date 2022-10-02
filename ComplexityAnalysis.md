@@ -21,7 +21,7 @@ $$f(n) =2n^2 +3n + 1 = O(n^2)$$
 4. $n^k = O(n^{k+j})$ for $j \ge 1$
 5. If $f(n) = cg(n)$, then $f(n) = O(g(n))$
 6. $log{_a}{n} = O(log{_b}{n})$ for $a \ge 1$ and $b \neq 1$
-7. $log{_a}{n} = O(lg{_{10}}{n})$ for $a \neq 1$ where $n = log{_2}{n}$
+7. $log{_a}{n} = O(log{_{10}}{n})$ for $a \neq 1$ where $n = log{_2}{n}$
 
 ###
 ## $\Omega$ and $\Theta$ Notations
