@@ -26,9 +26,9 @@ Auxiliary linked lists operations
 - The access time for a linked list is relatively slow $O(n)$
 
 ### Singly Linked List
-The linked list consists of a series of structures called nodes. The first part of a node is a field that stores the data, and the second part is a field that stores a pointer to the next node. 
+A singly linked list consists of a series of structures called nodes. The first part of a node is a field that stores the data, and the second part is a field that stores a pointer to the next node. </br>
+[Code](/Lists/Code/SinglyLinkedList.cpp)
 
-Insertion: Insertion into a singly-linked list has three cases:
-- Inserting a new node before the head
-- Inserting a new node after the tail
-- Inserting a new node at the middle of the list
+### Doubly Linked List
+A doubly linked list is a list in which a node contains a pointer to the previous and next node in the sequence. The advantage of a doubly linked list over a singly linked list is that you are able to navigate forwards and backwards. The disadvantage is that each node requires and extra pointer(more space), and insertion and deletion take longer. </br>
+[Code](/Lists/Code/DoublyLinkedList.cpp)

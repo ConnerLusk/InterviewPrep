@@ -3,14 +3,15 @@ using namespace std;
 
 struct Node {
     int data;
+    Node* prev;
     Node* next;
 };
 
-class SinglyLinkedList {
+class DoublyLinkedList {
   private:
     Node* head;
   public:
-    SinglyLinkedList(){
+    DoublyLinkedList(){
       head = NULL;
     }
 
@@ -21,9 +22,12 @@ class SinglyLinkedList {
     void pushFront(int newData) {
         Node* newNode = new Node();
         newNode->data = newData;
+        newNode->prev = NULL;
+        newNode->next = NULL;
         if (head == NULL) {
             head = newNode;
         } else {
+            head->prev = newNode;
             newNode->next = head;
             head = newNode;
         }
@@ -37,6 +41,8 @@ class SinglyLinkedList {
         if (head != NULL) {
             Node* temp = head;
             head = head->next;
+            if (head != NULL)
+                head->prev = NULL;
             free(temp);
         }
     }
@@ -48,20 +54,27 @@ class SinglyLinkedList {
     void pushAt(int n, int newData) {
         Node* newNode = new Node();
         newNode->data = newData;
-        Node* pred = head;
-        if (n <= 1) {
-            newNode->next = head;
-            head = newNode;
-            return;
+        newNode->prev = NULL;
+        newNode->next = NULL;
+        if (n < 1) return;
+        if (n == 1) {
+            pushFront(newData);
+        } else {
+            Node *temp = head;
+            for (int i = 1; i < n - 1; i++) {
+                if (temp != NULL) {
+                    temp = temp->next;
+                }
+            }
+            if (temp != NULL) {
+                newNode->next = temp->next;
+                newNode->prev = temp;
+                temp->next = newNode;
+                if (newNode->next != NULL) {
+                    newNode->next->prev = newNode;
+                }
+            }
         }
-        while (--n && pred != NULL) {
-            pred = pred->next;
-        }
-        if (pred == NULL) {
-            return;
-        }
-        newNode->next = pred->next;
-        pred->next = newNode;
     }
 
     /**
@@ -71,9 +84,7 @@ class SinglyLinkedList {
     void popAt(int n) {
         if (n < 1) return;
         if (n == 1 && head != NULL) {
-            Node* deleteNode = head;
-            head = head->next;
-            free(deleteNode);
+            popEnd();
         } else {
             Node* temp = head;
             for (int i = 1; i < n - 1; i++) {
@@ -84,6 +95,9 @@ class SinglyLinkedList {
             if (temp != NULL && temp->next != NULL) {
                 Node* deleteNode = temp->next;
                 temp->next = temp->next->next;
+                if (temp->next->next != NULL) {
+                    temp->next->next->prev = temp->next;
+                }
                 free(deleteNode);
             }
         }
@@ -96,6 +110,7 @@ class SinglyLinkedList {
     void pushBack(int newData) {
       Node* newNode = new Node();
       newNode->data = newData;
+      newNode->prev = NULL;
       newNode->next = NULL; 
       if(head == NULL) {
         head = newNode;
@@ -103,6 +118,7 @@ class SinglyLinkedList {
         Node* temp = head;
         while(temp->next != NULL)
           temp = temp->next;
+        newNode->prev = temp;
         temp->next = newNode;
       }    
     }
@@ -117,7 +133,7 @@ class SinglyLinkedList {
                 head = NULL;
             } else {
                 Node* temp = head;
-                while (temp->next != NULL) {
+                while (temp->next->next != NULL) {
                     temp = temp->next;
                 }
                 Node* lastNode = temp->next;
@@ -150,7 +166,7 @@ class SinglyLinkedList {
 
 // test the code  
 int main() {
-  SinglyLinkedList testList;
+  DoublyLinkedList testList;
 
   //Add three elements at the end of the list.
   testList.pushBack(10);
