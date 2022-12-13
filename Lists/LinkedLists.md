@@ -32,3 +32,7 @@ A singly linked list consists of a series of structures called nodes. The first 
 ### Doubly Linked List
 A doubly linked list is a list in which a node contains a pointer to the previous and next node in the sequence. The advantage of a doubly linked list over a singly linked list is that you are able to navigate forwards and backwards. The disadvantage is that each node requires and extra pointer(more space), and insertion and deletion take longer. </br>
 [Code](/Lists/Code/DoublyLinkedList.cpp)
+
+### Circularly Linked List
+A cicularly linked list is the same as a linked list, but instead of the last node pointing to next, it points to the first node. 
+[Code](/Lists/Code/CircularlyLinkedList.cpp)
