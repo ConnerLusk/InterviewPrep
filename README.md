@@ -1,4 +1,4 @@
 # InterviewStudying
 [Intro to Data and Growth Rates](DataStructuresAndGrowth.md) <br/>
-[Arrays](/Lists/Arrays.md.md) <br/>
-[Linked Lists](/Lists/LinkedLists.md)
+[Arrays](./Data%20Structures/Lists/Arrays.md) <br/>
+[Linked Lists](./Data%20Structures/Lists/LinkedLists.md)
